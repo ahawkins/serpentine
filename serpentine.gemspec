@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Easy query parameter filters for Rails applications"
   s.description = ""
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "readme.me"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "readme.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3"
