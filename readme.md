@@ -14,9 +14,9 @@ class PostsController < ApplicationController
   filter_collection :alphabetically
   filter_collection :by_ids, :if => proc { |params| params[:ids] }
 
-  # apply_filters! is added by Serpentine. You can call it yourself
+  # apply_scopes! is added by Serpentine. You can call it yourself
   # in your own actions if you like.
-  before_filter :apply_filters!, :only => :index
+  before_filter :apply_scopes!, :only => :index
 
   # define a collection accessor
   # It is important to use ||= here

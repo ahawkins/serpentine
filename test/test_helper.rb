@@ -20,8 +20,4 @@ class ApplicationController
   def render_results
     render :json => collection.map(&:key)
   end
-
-  def collection=(value)
-    @collection = value
-  end
 end
