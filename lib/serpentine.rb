@@ -20,14 +20,28 @@ module Serpentine
 
     def apply_scopes!
       self.class.collection_filters.each do |callback|
-        if callback.options[:if] && (callback.options[:if].respond_to?(:call) ? callback.options[:if].call(params) : send(options[:if]))
-          self.collection = send callback.name
-        elsif callback.options[:unless] && !(callback.options[:unless].respond_to?(:call) ? callback.options[:unless].call(params) : send(options[:unless]))
-          self.collection = send callback.name
-        elsif !callback.options[:if] && !callback.options[:unless]
+        if apply_scopes?(callback.options)
           self.collection = send callback.name
         end
       end
+    end
+
+    def apply_scopes?(options)
+      apply_scope_if?(options[:if]) ||
+      apply_scope_unless?(options[:unless]) ||
+      !options[:if] && !options[:unless]
+    end
+
+    def apply_scope_if?(operator)
+      operator && (operator.respond_to?(:call) ? operator.call(params) : send(operator))
+    end
+
+    def apply_scope_unless?(operator)
+      operator && (operator.respond_to?(:call) ? !operator.call(params) : !send(operator))
+    end
+
+    def collection=(collection)
+      @collection = collection
     end
   end
 end
