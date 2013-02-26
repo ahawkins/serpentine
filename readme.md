@@ -1,5 +1,15 @@
 # Serpentine
 
+[![Build Status](https://secure.travis-ci.org/twinturbo/serpentine.png?branch=master)][travis]
+[![Gem Version](https://badge.fury.io/rb/serpentine.png)][gem]
+[![Code Climate](https://codeclimate.com/github/twinturbo/serpentine.png)][codeclimate]
+[![Dependency Status](https://gemnasium.com/twinturbo/serpentine.png?travis)][gemnasium]
+
+[gem]: https://rubygems.org/gems/serpentine
+[travis]: http://travis-ci.org/twinturbo/serpentine
+[gemnasium]: https://gemnasium.com/twinturbo/serpentine
+[codeclimate]: https://codeclimate.com/github/twinturbo/serpentine
+
 Serpentine makes complicated query parameters easy. This is a very
 commong problem in rails applications. Your controller needs to accept a
 variety of input parameters to filter/order/search a collection in some
